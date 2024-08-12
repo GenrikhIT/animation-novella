@@ -1,38 +1,111 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  justify-content: space-around; /* Горизонтальное центрирование */
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.First {
+  display: flex;
+   text-align: center;
+   /* margin: 200px; */
+   justify-content: left; /* Горизонтальное центрирование */
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Second {
+   text-align: center;
+   /* margin: 200px; */
+   justify-content: right; /* Горизонтальное центрирование */
+  align-items: center;
+}
+.First_box {
+  width: 200px; /* Ширина блока */
+  height: 250px; /* Высота блока */
+  border: 1px solid #787777; /* Толщина и цвет рамки */
+  border-radius: 15px; /* Закругление краев */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень */
+  background-color: #fff; /* Цвет фона */
+  padding: 20px; /* Внутренний отступ */
+  position: relative; /* Для правильного позиционирования пузыря */
+}
+.Second_box {
+  width: 200px; /* Ширина блока */
+  height: 250px; /* Высота блока */
+  border: 1px solid #787777; /* Толщина и цвет рамки */
+  border-radius: 15px; /* Закругление краев */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень */
+  background-color: #fff; /* Цвет фона */
+  padding: 20px; /* Внутренний отступ */
+  overflow: hidden; /* Чтобы изображение не выходило за границы блока */
+  position: relative;
+}
+
+.zoom-image {
+  width: 150px;
+  height: auto;
+  transform: scale(0); /* Исходное состояние: 0% */
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Плавный переход */
+}
+
+.Second_box:hover .zoom-image {
+  transform: scale(1); /* Увеличение картинки до 110% */
+  opacity: 1;
+}
+
+.bubble
+{
+   position: relative;
+   width: 150px;
+   height: 80px;
+   padding: 6px;
+   margin-left: 20px;
+   background: #ffffff;
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+    border: #4f4d4d solid 4px;
+    text-align: center;
+    display: flex;
+    font-size: 20 px;
+    justify-content: center; /* Горизонтальное центрирование */
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.bubble:after
+{
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 18px 8px 0;
+    border-color: #ffffff transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    bottom: -18px;
+    left: 32px;
+}
+
+.bubble:before
+{
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 21px 11px 0;
+    border-color: #4f4d4d transparent;
+    display: block;
+    width: 0;
+    z-index: 0;
+    bottom: -25px;
+    left: 29px;
+}
+.First_box:hover .bubble {
+  opacity: 1;
+  visibility: visible;
 }
